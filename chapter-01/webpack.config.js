@@ -1,13 +1,13 @@
 var webpack = require("webpack")
 var path = require("path")
-
-
+const BASE_DIR = path.resolve(__dirname);
+const BUILD_DIR = path.join(BASE_DIR, 'dist/assets')
 process.noDeprecation = true
 
 module.exports = {
-  entry: path.join(__dirname,"src/index.js"),
+  entry: "./index.js",
   output: {
-      path: path.join(__dirname,"dist/assets"),
+      path: BUILD_DIR,
       filename: "bundle.js",
       sourceMapFilename: 'bundle.map'
   },
@@ -19,7 +19,7 @@ module.exports = {
               exclude: /(node_modules)/,
               loader: 'babel-loader',
               query: {
-                  presets: ['env', 'stage-0', 'react']
+                  presets: ['env', 'stage-0']
               }
           },
           {
