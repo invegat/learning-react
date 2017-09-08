@@ -21,7 +21,7 @@ export default class App extends Component {
             ...this.state.colors,
             {
                 id: v4(),
-                title,
+                title: 0,
                 color,
                 rating: 0
             }

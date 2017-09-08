@@ -2,10 +2,12 @@ var webpack = require("webpack")
 var path = require("path")
 
 
-process.noDeprecation = true
 
 module.exports = {
-  entry: path.join(__dirname,"src/index.js"),
+    resolve: {
+        extensions: ['.js', '.jsx', '.html', '.json']
+    },
+    entry: path.join(__dirname,"src/index.jsx"),
   output: {
       path: path.join(__dirname,"dist/assets"),
       filename: "bundle.js",
@@ -15,11 +17,13 @@ module.exports = {
   module: {
       rules: [
           {
-              test: /\.js$/,
+              test: /\.jsx?$/,
               exclude: /(node_modules)/,
-              loader: 'babel-loader',
-              query: {
-                  presets: ['env', 'stage-0', 'react']
+              use: {
+                  loader: 'babel-loader',
+                  options: {
+                      presets: ['env', 'react', 'stage-0']
+                  }
               }
           },
           {
@@ -36,7 +40,7 @@ module.exports = {
 
       new webpack.DefinePlugin({
           "process.env": {
-              NODE_ENV: JSON.stringify("production")
+              NODE_ENV: JSON.stringify("development")
           }
       }),
 

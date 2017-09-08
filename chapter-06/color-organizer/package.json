@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/webpack --progress",
-    "prestart": "npm run build",
-    "start": "open http://localhost:3000 & ./node_modules/.bin/httpster -p 3000 -d ./dist"
+    "prestart": "yarn build",
+    "start": "start http://localhost:3000 & ./node_modules/.bin/httpster -p 3000 -d ./dist"
   },
   "keywords": [
     "React",
@@ -27,6 +27,7 @@
     "css-loader": "0.27.3",
     "node-sass": "4.5.1",
     "postcss-loader": "1.3.3",
+    "prop-types": "^15.5.10",
     "sass-loader": "6.0.3",
     "style-loader": "0.14.1",
     "webpack": "2.2.1"
